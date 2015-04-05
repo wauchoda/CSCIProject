@@ -94,13 +94,21 @@ public class Player {
     }*/
     //combat (compares self values to monster class values and reduces accordingly)
     public void combat(int attack) {
+        int tempa, tempt;
         if(room.getEncounter.equals("Monster"){
-            room.get
+            tempa = room.getAttack();
+            tempt = room.getType();
+            te
+
         }
         if(room.getEncounter.equals("ShopKeeper")){
             room.get
         }
 
+    }
+
+    public void compareCombat(int p, int m){
+        if(p == 0 & m== 2)
     }
     //returns the arraylist from inventory that has items in it
     public ArrayList<Item> getInventory(){
@@ -110,6 +118,19 @@ public class Player {
         room = room.generateRoom();
 
     }
+    //increments money based on value and removes the item from inventory
+    public void sellItem(int i){
+        if(inventory.getList().get(i) != null ) {
+            money += 0.75 * (inventory.getList().get(i).getValue());
+            inventory.getList().removeItem(i);
+        }
+    }
+
+    public void moveItem(){
+        temp
+        room.getChest.getInventory.getList();
+    }
+
 
 
 

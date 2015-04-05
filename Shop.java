@@ -12,15 +12,14 @@ public class Shop {
         inventory = new Inventory();
     }
 
-    public Item buyItem(int i){
+    public Item buyItem(int i) {
         Item temp = inventory.getList().get(i);
-        if(Player.money>inventory.getList().get(i).getValue()){
-            Player.money -=inventory.getList().get(i).getValue();
+        if (Player.money > inventory.getList().get(i).getValue()) {
+            Player.money -= inventory.getList().get(i).getValue();
             inventory.getList().remove(i);
             return temp;
         }
         return null;
-
     }
 
     public shopKeeper getShopKeeper() {
