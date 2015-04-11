@@ -8,13 +8,15 @@ public class shopKeeper {
     private int health;
     private String name;
     private double price;
+    private int type;
 
     //constructor
     public shopKeeper(){
-        name = "CSCIProject.Shop Keeper";
+        name = "Shop Keeper";
         price = 0.01*(rand.nextInt(150) + 50) ;
         damage = 10;
         health = 20;
+        type = getAttack();
     }
 
     //get/set methods
@@ -50,6 +52,15 @@ public class shopKeeper {
         this.price = price;
     }
 
+    //generates a random tyoe of attack
+    public int getAttack(){
+        return rand.nextInt(3);
+    }
+    public int getType(){ return type;}
+    //sets the attack to a random int
+    public void setAttack(){
+        type = rand.nextInt(3);
+    }
 
 
 }

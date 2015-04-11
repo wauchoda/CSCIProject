@@ -6,22 +6,21 @@ import java.util.Random;
 public class Player {
     Random rand = new Random();
     //attributes
-    public static maxHealth = rand.getInt();
+    public static int maxHealth = 10;
     public static int health = maxHealth;
     public static int attack;
     public static int defense;
     private int level;
     private int money;
+    private String name;
     Inventory inventory;
-    Room room;
     //location xpos and ypos
     private int xpos;
     private int ypos;
 
     public Player(){
-        maxHealth += level;
+        maxHealth += rand.nextInt(10);
         inventory = new Inventory();
-        Room room = new Room();
     }
 
 
@@ -88,27 +87,93 @@ public class Player {
         this.ypos = ypos;
     }
 
-    //use item
-    /**public void useItem(index i){
-     *  inventory.get(i).getEffect();
-    }*/
+    //get/set name
+    public String getName() { return name;}
+
+    public void setName(String s){name = s;}
+
+    //when attack is pressed triggers the event
+    public void event(int attack){
+        if(room.getRoomBasic.getEncounter().getClass().getName().equals("Monster"){
+            combat(attack);
+        }
+        if(room.getRoomBasic.getEncounter().getClass().getName().equals("Shop")){
+            shop(attack);
+        }
+    }
+
     //combat (compares self values to monster class values and reduces accordingly)
     public void combat(int attack) {
-        int tempa, tempt;
-        if(room.getRoomBasic.getEncounter().equals("Monster"){
-            tempa = room.getRoomBasic.getEncounter().getAttack();
-            tempt = room.getRoomBasic.getEncounter().getType();
+        int tempa, tempt,tempc;
+        Monster m= room.getRoomBasic.getEncounter();
 
-
+            tempa = m.getAttack();
+            tempt = m.getType();
+            tempc =compareCombat(attack, tempa);
+        //winning combination
+        if(tempc == 0){
+            health =- tempa/2;
+            m.setHealth(m.getHealth()-2*attack);
         }
-        if(room.getEncounter.equals("ShopKeeper")){
-            room.get
+        //tie combination
+        if(tempc == 1){
+            health =- tempa/2;
+            m.setHealth(m.getHealth()-attack/2);
+        }
+        //lose combination
+        if(tempc == 0){
+            health =- tempa;
+            m.setHealth(m.getHealth()-attack/2);
         }
 
     }
+    //fights the shopkeeper
+    public void shop(int attack){
+        int tempa, tempt,tempc;
+        shopKeeper m = room.getRoomBasic.getEncounter().getShopKeeper();
 
-    public void compareCombat(int p, int m){
-        if(p == 0 & m== 2)
+        tempa = m.getAttack();
+        tempt = m.getType();
+        tempc =compareCombat(attack, tempa);
+        //winning combination
+        if(tempc == 0){
+            health =- tempa/2;
+            m.setHealth(m.getHealth()-2*attack);
+        }
+        //tie combination
+        if(tempc == 1){
+            health =- tempa/2;
+            m.setHealth(m.getHealth() - attack / 2);
+        }
+        //lose combination
+        if(tempc == 0){
+            health =- tempa;
+            m.setHealth(m.getHealth()-attack/2);
+        }
+    }
+
+    public int compareCombat(int p, int m){
+        //win
+        if(p == 0 & m== 1)
+            return 0;
+        if(p == 1 & m ==2)
+            return 0;
+        if(p == 2 & m == 0)
+            return 0;
+        //lose
+        if(p == 1 & m== 0)
+            return 2;
+        if(p == 2 & m ==1)
+            return 2;
+        if(p == 0 & m == 2)
+            return 2;
+        //tie
+        if(p == 0 & m== 0)
+            return 1;
+        if(p == 1 & m ==1)
+            return 1;
+        if(p == 2 & m == 2)
+            return 1;
     }
     //returns the arraylist from inventory that has items in it
     public ArrayList<Item> getInventory(){
@@ -120,16 +185,28 @@ public class Player {
     }
     //increments money based on value and removes the item from inventory
     public void sellItem(int i){
-        if(inventory.getList().get(i) != null ) {
+        if(inventory.getList().get(i) != null & room.getEncounter().getClass().getName().equals("Shop")) {
             money += 0.75 * (inventory.getList().get(i).getValue());
             inventory.getList().removeItem(i);
         }
     }
 
     public void moveItem(){
-        temp
-        room.getChest.getInventory.getList();
+        if(room.getChest.getInventory().getList().get(i) != null) {
+            temp item = room.getChest.getInventory().getList().get(i);
+            room.getChest.getInventory().getList().remove(i);
+            if(inventory.getList().size() < 9)
+                inventory.addItem(item);
+        }
     }
+    public void removeItem(int i){
+        if(inventory.getList().get(i) != null)
+            inventory.getList().remove(i);
+    }
+    /**
+    public void useItem(int i){
+        inventory.get(i).
+    }*/
 
 
 
