@@ -1,6 +1,5 @@
+package CSCIProject;
 import java.util.Random;
-
-
 //The room class simply generates a room from the list of types
 public class Room {
 

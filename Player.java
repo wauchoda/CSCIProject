@@ -13,7 +13,8 @@ public class Player {
     private int level;
     private int money;
     private String name;
-    Inventory inventory;
+    private boolean dead;
+    private Inventory inventory;
     //location xpos and ypos
     private int xpos;
     private int ypos;
@@ -94,18 +95,20 @@ public class Player {
 
     //when attack is pressed triggers the event
     public void event(int attack){
-        if(room.getRoomBasic.getEncounter().getClass().getName().equals("Monster"){
+        if(Room.getEncounter().getClass().getName().equals("Monster"){
             combat(attack);
         }
-        if(room.getRoomBasic.getEncounter().getClass().getName().equals("Shop")){
+        if(Room.getEncounter().getClass().getName().equals("Shop")){
             shop(attack);
         }
+        if(health <= 0)
+            dead = true;
     }
 
     //combat (compares self values to monster class values and reduces accordingly)
     public void combat(int attack) {
         int tempa, tempt,tempc;
-        Monster m= room.getRoomBasic.getEncounter();
+        Monster m= Room.getEncounter();
 
             tempa = m.getAttack();
             tempt = m.getType();
@@ -130,7 +133,7 @@ public class Player {
     //fights the shopkeeper
     public void shop(int attack){
         int tempa, tempt,tempc;
-        shopKeeper m = room.getRoomBasic.getEncounter().getShopKeeper();
+        shopKeeper m = Room.getEncounter().getShopKeeper();
 
         tempa = m.getAttack();
         tempt = m.getType();
@@ -180,21 +183,21 @@ public class Player {
         return inventory.getList();
     }
     public void move(){
-        room = room.generateRoom();
+        Room = Room.generateRoom();
 
     }
     //increments money based on value and removes the item from inventory
     public void sellItem(int i){
-        if(inventory.getList().get(i) != null & room.getEncounter().getClass().getName().equals("Shop")) {
+        if(inventory.getList().get(i) != null & Room.getEncounter().getClass().getName().equals("Shop")) {
             money += 0.75 * (inventory.getList().get(i).getValue());
             inventory.getList().removeItem(i);
         }
     }
 
     public void moveItem(){
-        if(room.getChest.getInventory().getList().get(i) != null) {
-            temp item = room.getChest.getInventory().getList().get(i);
-            room.getChest.getInventory().getList().remove(i);
+        if(Room.getChest.getInventory().getList().get(i) != null) {
+            temp item = Room.getChest.getInventory().getList().get(i);
+            Room.getChest.getInventory().getList().remove(i);
             if(inventory.getList().size() < 9)
                 inventory.addItem(item);
         }
