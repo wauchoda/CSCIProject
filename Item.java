@@ -1,15 +1,16 @@
 public class Item{
 	private double value;
 	private String name; 
-	private int type;
+	protected String type;
 	private int effect;
 	
 	//this class creates an item object with value = price in store, n = name of item, type being either a potion or weapon or backpack
-	public Item(double v, String n, int t){
+	public Item(double v, String n,String t){
 		v = value;
 		n = name;
 		t = type;
    }
+	public Item(){}
 
 	
 	public int getEffect() {
@@ -36,11 +37,11 @@ public class Item{
 		this.name = name;
 	}
 	
-	public int getType() {
+	public String getType() {
 		return type;
 	}
 
-	public void setType(int type) {
+	public void setType(String type) {
 		this.type = type;
 	}
 }

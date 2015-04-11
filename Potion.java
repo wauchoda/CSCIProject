@@ -1,9 +1,12 @@
 public class Potion extends Item
 {
-   int maxHealth = 15;
-   int health = 10;
+   int maxHealth = 15;//remove when combined
+   int health = 10;//remove when combined
+	Inventory Inventory;
    
-   public Potion(){
+   public Potion(String type){
+	   Inventory = new Inventory();
+	   this.type = type;
    }
    
    public void UsePotion(int index, String t){
@@ -12,16 +15,16 @@ public class Potion extends Item
 	   Inventory.removeItem(index);
 	   
 	   //restores health / increases health
-	   if (t.equals("normal")){
+	   if (type.equals("normal")){
 		   checkHealth(5);
 		   Player.health += 5;//syntax?
 	   }
-	   if (t.equals("super")){
+	   if (type.equals("super")){
 		   checkHealth(10);
 		   Player.maxHealth += 1;
 		   Player.health += 10;//syntax?
 	   }
-	   if (t.equals("superDuper")){
+	   if (type.equals("superDuper")){
 		   checkHealth(15);
 		   Player.maxHealth += 10;
 		   Player.health += 15;//syntax?

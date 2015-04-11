@@ -25,9 +25,16 @@ public class Inventory //extends player
 		   
 	   //if not full, add
 	   if (counter < list.size()-1){
-		   list.add(a);
-		   counter ++;
-		   System.out.println("added "+a.getName() +" to bag.");
+		   System.out.println("do you want to add " +a.getName()+ " to bag?(y/n)");
+		   String hufu = kb.nextLine();
+		   if(hufu.equals("y")){
+			   list.add(a);
+			   counter ++;
+			   System.out.println("added "+a.getName() +" to bag.");
+		   }
+		   else{
+			   System.out.println("did not add "+a.getName() +" to bag."); 
+		   }
 	   }
 	   else
 		   System.out.println("great we have a logic error...");
@@ -48,11 +55,11 @@ public class Inventory //extends player
 			   counter --;
 		   }
 		   
-		   //easter egg
+		   /*easter egg
 		   if(response.equals("dankMemes") && counter<list.size()-1){
-			   //value,name,type,attack,description
-			   Item.add(new item(69,"The Meme Machine",3));
-		   }
+			   Item memeMachine = new Item(69,"The Meme Machine",3);
+			   addItem(memeMachine);
+		   }*/
 		   
 		   if(response.equals("n"))
 			   System.out.println("Not removing/using item.");
