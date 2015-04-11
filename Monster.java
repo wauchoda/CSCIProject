@@ -41,6 +41,11 @@ public class Monster extends Encounter{
 		name = n;
 	}
 	
+	public void setHealth(int h){
+		health = h;
+	}
+	
+	
 	public int getAttack(){
 		return rand.nextInt(3);
 	}
@@ -53,6 +58,8 @@ public class Monster extends Encounter{
 	public int getHealth() {
 		return health;
 	}
+	
+
 	
 	public int getType(){
 		return type;
