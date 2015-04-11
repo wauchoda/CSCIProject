@@ -10,14 +10,11 @@ public class Player {
     public static int health = maxHealth;
     public static int attack;
     public static int defense;
-    public int level;
-    private int money;
-    private String name;
-    private boolean dead;
+    public static int level;
+    public static int money;
+    public static String name;
+    public static boolean dead;
     private Inventory inventory;
-    //location xpos and ypos
-    private int xpos;
-    private int ypos;
 
     public Player(){
         maxHealth += rand.nextInt(10);
@@ -69,24 +66,7 @@ public class Player {
     public void setMoney(int money) {
         this.money = money;
     }
-
-    ///get/set xpos
-    public int getXpos() {
-        return xpos;
-    }
-
-    public void setXpos(int xpos) {
-        this.xpos = xpos;
-    }
-
-    //get/set ypos
-    public int getYpos() {
-        return ypos;
-    }
-
-    public void setYpos(int ypos) {
-        this.ypos = ypos;
-    }
+    
 
     //get/set name
     public String getName() { return name;}
