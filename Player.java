@@ -6,7 +6,7 @@ import java.util.Random;
 public class Player {
     Random rand = new Random();
     //attributes
-    public static int maxHealth = rand.getInt();
+    public static maxHealth = rand.getInt();
     public static int health = maxHealth;
     public static int attack;
     public static int defense;
@@ -95,10 +95,10 @@ public class Player {
     //combat (compares self values to monster class values and reduces accordingly)
     public void combat(int attack) {
         int tempa, tempt;
-        if(room.getEncounter.equals("Monster"){
-            tempa = room.getAttack();
-            tempt = room.getType();
-            te
+        if(room.getRoomBasic.getEncounter().equals("Monster"){
+            tempa = room.getRoomBasic.getEncounter().getAttack();
+            tempt = room.getRoomBasic.getEncounter().getType();
+
 
         }
         if(room.getEncounter.equals("ShopKeeper")){
