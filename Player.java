@@ -10,7 +10,7 @@ public class Player {
     public static int health = maxHealth;
     public static int attack;
     public static int defense;
-    private int level;
+    public int level;
     private int money;
     private String name;
     private boolean dead;
