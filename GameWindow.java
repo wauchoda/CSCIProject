@@ -23,6 +23,7 @@ public class GameWindow extends JFrame implements ActionListener {
       panel1.add(entername);
       panel1.add(name);
       panel1.add(confirm);
+      confirm.addActionListener(this);
       
       
       add(panel1);
@@ -38,8 +39,7 @@ public class GameWindow extends JFrame implements ActionListener {
    
    }
    
-   
-
+    
    
 
 
@@ -52,7 +52,11 @@ public class GameWindow extends JFrame implements ActionListener {
 
    //All the responces and stuff
    public void actionPerformed(ActionEvent e){
-
+	   if(e.getSource() == confirm){
+		   Player.setName(name.getText());
+		   MainWindow window2 = new MainWindow(Player.getName());
+		   dispose();
+	   }
 
 
    }
@@ -61,10 +65,12 @@ public class GameWindow extends JFrame implements ActionListener {
    //main method
    public static void main(String[]args){
       
-      GameWindow window = new GameWindow();
-   
+   GameWindow window = new GameWindow();
+      
    
    }
+   
+
    
    
 }
