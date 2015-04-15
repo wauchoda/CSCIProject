@@ -10,6 +10,7 @@ public class GameWindow extends JFrame implements ActionListener {
    private JTextField name;
    private JLabel entername;
    private JPanel panel1;
+   public static int roomCount = 0;
    
    public GameWindow(){
       
@@ -64,8 +65,9 @@ public class GameWindow extends JFrame implements ActionListener {
    
    //main method
    public static void main(String[]args){
-      
-   GameWindow window = new GameWindow();
+     
+		
+		GameWindow window = new GameWindow();
       
    
    }
