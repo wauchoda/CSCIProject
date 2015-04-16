@@ -1,5 +1,3 @@
-package CSCIProject;
-
 /**
  * Created by David on 2015-03-02.
  */
