@@ -171,7 +171,18 @@ public class MainWindow extends JFrame implements ActionListener{
 			   //loot chests
 			   if(n.equals("loot")){
 				   if(player.getRoom().hasChest()){
-					   
+					   Screen.append(player.getRoom().getChest().getInventory()+"");
+					   try{
+						   
+						   for(int i = 0; i< player.getRoom().getChest().getInventory().getSize(); i++){
+							   player.moveItem(i);
+						   }
+						   Screen.append("Items added.");
+
+					   }
+					   catch(IndexOutOfBoundsException index){
+						   Screen.append("That item doesn't exist.");
+					   }
 				   }
 			   }
 			   
@@ -183,7 +194,7 @@ public class MainWindow extends JFrame implements ActionListener{
 					   while(sold == false) {
 						   try {
 							   if (e.getSource() == enter) {
-								   n = input.getText();
+								   n = input.getText().toLowerCase();
 								   player.sellItem(Integer.parseInt(n));
 								   sold = true;
 							   }
@@ -226,6 +237,7 @@ public class MainWindow extends JFrame implements ActionListener{
 			   System.out.println("");
 		   }
 		   input.setText("");   //makes sure the text box is clear when the player is done with it.
+		   Screen.setCaretPosition(Screen.getDocument().getLength());
 	   }
    }
 }
