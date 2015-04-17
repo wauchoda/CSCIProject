@@ -100,6 +100,7 @@ public class Player{
 
     //when attack is pressed triggers the event
     public void event(int attack){
+        attack = equipped.getList().get(attack).getAttack();
         if (room.getEncounter().equals("Monster")){
             combat(attack);
         }
@@ -235,7 +236,10 @@ public class Player{
         }
     }
 
+    /**public void useItem(int i) {
+        if (inventory.getList().get(i) != null &) {
 
+        }
 
-
+    }*/
 }

@@ -9,13 +9,21 @@ public class Item{
 	private String name; 
 	protected int type;
 	private int effect;
+	private int attack;
 	
 	//this class creates an item object with value = price in store, n = name of item, type being either a potion or weapon or backpack
 	public Item(double v, String n,int t){
 		value = v;
 		name = n;
 		type = t;
+		attack = 0;
    }
+	public Item(double v, String n,int t, int attack){
+		value = v;
+		name = n;
+		type = t;
+		this.attack = attack;
+	}
 	public Item(){}
 
 	
@@ -49,6 +57,16 @@ public class Item{
 
 	public void setType(int type) {
 		this.type = type;
+	}
+
+	public int getAttack()
+	{
+		return attack;
+	}
+
+	public void setAttack(int n)
+	{
+		attack = n;
 	}
 
 	public Item generateItem() {
