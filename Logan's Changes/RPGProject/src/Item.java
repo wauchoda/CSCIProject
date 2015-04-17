@@ -113,20 +113,22 @@ public class Item{
 			Potion normal = new Potion("normal");
 			inventory.addItem(normal);
 		}
-		else
+		else{
 			//super potion
 			if (ranPot <= 66) {
 				Potion normal = new Potion("super");
 				inventory.addItem(normal);
-			} else
-				//nothing
-				if (ranPot <= 99) {
-				}
-				//super duper potion
-				else {
-					Potion normal = new Potion("superDuper");
-					inventory.addItem(normal);
-				}
+			} 
+			else
+			//nothing
+			if (ranPot <= 99) {
+			}
+			//super duper potion
+			else {
+				Potion normal = new Potion("superDuper");
+				inventory.addItem(normal);
+			}
+		}
 		return inventory.getList().get(0);
 	}
 
@@ -188,7 +190,7 @@ public class Item{
 
 	@Override
 	public String toString() {
-		return (name +"\n Type: "+ type+"\nValue: "+value);
+		return (name +"\nType: "+ type+"\nValue: "+value);
 
 	}
 }
