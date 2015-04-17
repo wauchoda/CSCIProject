@@ -3,18 +3,14 @@ public class Potion extends Item
    int maxHealth = 15;//remove when combined
    int health = 10;//remove when combined
 	String type;
-	Inventory Inventory;
+	Inventory inventory;
    
    public Potion(String type){
-	   Inventory = new Inventory();
 	   this.type = type;
    }
    
    public void UsePotion(int index, String t){
-	   
-	   //removes item from inventory
-	   Inventory.removeItem(index);
-	   
+
 	   //restores health / increases health
 	   if (type.equals("normal")){
 		   checkHealth(5);

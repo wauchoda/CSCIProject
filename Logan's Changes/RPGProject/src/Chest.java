@@ -15,8 +15,8 @@ public class Chest {
 		if (ran > 0 && ran <= 33) {
 			int value = 70;
 			String goodName = naming("axe");
-			int type = 1 + mod;
-			int attack = 1;
+			int type = 1;
+			int attack = 1 + mod;
 			Weapon axe = new Weapon(value, goodName, type, attack);
 			inventory.addItem(axe);//adds axe to inventory not sure syntax not includes for others atm
 		}

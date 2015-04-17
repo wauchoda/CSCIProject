@@ -4,10 +4,15 @@
 public class Shop {
     private shopKeeper sk;
     private Inventory inventory;
+    private Item item;
 
     public Shop(){
         sk = new shopKeeper();
         inventory = new Inventory();
+        item = new Item();
+        for(int i = 0; i< 4; i++){
+            inventory.addItem(item.generateItem());
+        }
     }
 
     public Item buyItem(int i) {

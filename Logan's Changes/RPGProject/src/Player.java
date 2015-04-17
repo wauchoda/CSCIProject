@@ -234,9 +234,8 @@ public class Player{
             }
         }
     }
-    /**
-    public void useItem(int i){
-        inventory.get(i).
-    }*/
+
+
+
 
 }
