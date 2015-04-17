@@ -1,5 +1,4 @@
 import java.io.BufferedReader;
-import java.net.URL;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -137,12 +136,9 @@ public class Item{
 		Random rand = new Random();
 		int numLine = 0;
 		int counter = rand.nextInt(15);
-		URL url1 = Item.class.getClassLoader().getResource("magic.txt");
-		URL url2 = Item.class.getClassLoader().getResource("axe.txt");
-		URL url3 = Item.class.getClassLoader().getResource("bow.txt");
 		try {
 			if (name.equals("magic")) {
-				File file = new File(url1.getPath());
+				File file = new File("magic.txt");
 				FileReader fileReader = new FileReader(file);
 				BufferedReader bufferedReader = new BufferedReader(fileReader);
 				StringBuffer stringBuffer = new StringBuffer();
@@ -156,7 +152,7 @@ public class Item{
 				bufferedReader.close();
 			}
 			if (name.equals("axe")) {
-				File file2 = new File(url2.getPath());
+				File file2 = new File("axe.txt");
 				FileReader fileReader2 = new FileReader(file2);
 				BufferedReader bufferedReader2 = new BufferedReader(fileReader2);
 				StringBuffer stringBuffer2 = new StringBuffer();
@@ -171,7 +167,7 @@ public class Item{
 			}
 
 			if (name.equals("bow")) {
-				File file3 = new File(url3.getPath());
+				File file3 = new File("bow.txt");
 				FileReader fileReader3 = new FileReader(file3);
 				BufferedReader bufferedReader3 = new BufferedReader(fileReader3);
 				StringBuffer stringBuffer3 = new StringBuffer();

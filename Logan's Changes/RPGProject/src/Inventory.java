@@ -44,10 +44,4 @@ public class Inventory {
    public void clear() {
 	   list.clear();
    }
-
-
-   public int getSize(){
-	   return list.size();
-   }
-
 }
